@@ -1,0 +1,22 @@
+front/Rolodex/.DS_Store
+front/Rolodex/node_modules
+front/Rolodex//dist
+
+# local env files
+front/Rolodex/.env.local
+front/Rolodex/.env.*.local
+front/Rolodex/src/.config.js
+
+# Log files
+front/Rolodex/npm-debug.log*
+front/Rolodex/yarn-debug.log*
+front/Rolodex/yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

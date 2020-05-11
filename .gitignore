@@ -1,16 +1,16 @@
-front/Rolodex/.DS_Store
-front/Rolodex/node_modules
-front/Rolodex//dist
+Rolodex/.DS_Store
+Rolodex/node_modules
+Rolodex/dist
 
 # local env files
-front/Rolodex/.env.local
-front/Rolodex/.env.*.local
-front/Rolodex/src/.config.js
+Rolodex/.env.local
+Rolodex/.env.*.local
+Rolodex/src/.config.js
 
 # Log files
-front/Rolodex/npm-debug.log*
-front/Rolodex/yarn-debug.log*
-front/Rolodex/yarn-error.log*
+Rolodex/npm-debug.log*
+Rolodex/yarn-debug.log*
+Rolodex/yarn-error.log*
 
 AspNetCore/obj/Debug/*
 
@@ -22,3 +22,9 @@ AspNetCore/obj/Debug/*
 *.njsproj
 *.sln
 *.sw?
+*.min.css
+*.min.js
+*.map
+.vscode/
+[Dd]ebug/
+[Dd]ebugPublic/

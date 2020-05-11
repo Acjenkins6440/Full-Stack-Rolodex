@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -52,6 +53,9 @@ namespace AspNetCore.Controllers
     public async Task<ActionResult> Delete(string id)
     {
       var user = await _dbContext.Users.FindAsync(id);
+
+      var contactsToRemove = _dbContext.ContactRecords.Where(contact => contact.UserId == user.Id);
+      _dbContext.ContactRecords.RemoveRange(contactsToRemove);
 
       _dbContext.Users.Remove(user);
 

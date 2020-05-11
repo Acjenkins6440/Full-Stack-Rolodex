@@ -22,7 +22,6 @@ export default {
   },
   created() { this.isAuthenticated(); },
   watch: {
-    // Everytime the route changes, check for auth status
     $route: 'isAuthenticated',
   },
   methods: {

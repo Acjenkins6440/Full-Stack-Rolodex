@@ -1,0 +1,5 @@
+E:\Hawksoft\Assessment\back\obj\Debug\netcoreapp3.1\back.csprojAssemblyReference.cache
+E:\Hawksoft\Assessment\back\obj\Debug\netcoreapp3.1\back.csproj.CoreCompileInputs.cache
+E:\Hawksoft\Assessment\back\obj\Debug\netcoreapp3.1\back.MvcApplicationPartsAssemblyInfo.cache
+E:\Hawksoft\Assessment\back\obj\Debug\netcoreapp3.1\back.AssemblyInfoInputs.cache
+E:\Hawksoft\Assessment\back\obj\Debug\netcoreapp3.1\back.AssemblyInfo.cs

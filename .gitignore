@@ -12,7 +12,7 @@ front/Rolodex/npm-debug.log*
 front/Rolodex/yarn-debug.log*
 front/Rolodex/yarn-error.log*
 
-AspNetCore/obj/Debug*
+AspNetCore/obj/Debug/*
 
 # Editor directories and files
 .idea

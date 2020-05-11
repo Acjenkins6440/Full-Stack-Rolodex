@@ -9,7 +9,6 @@
 </template>
 
 <script>
-// import ContactList from './ContactList.vue';
 import UserList from './UserList.vue';
 
 export default {

@@ -5,19 +5,24 @@
       <span v-if="activeUser && activeUser.name">{{activeUser.name}}'s </span>Rolodex
     </b-navbar-brand>
     <b-collapse is-nav id="top-nav">
-      <b-navbar-nav>
+      <b-navbar-nav class="navbar">
         <b-nav-item
           href="/"
-          v-if="authenticated"
+          v-if="$route.name === 'contact-list'"
           @click="clearActiveUser"
           >Return to User List</b-nav-item>
         <b-nav-item
-          right="true"
+          class="ml-auto"
           href="#"
           @click.prevent="$emit('login')"
           v-if="!authenticated"
           >Login</b-nav-item>
-        <b-nav-item href="#" @click.prevent="$emit('logout')" v-else>Logout</b-nav-item>
+        <b-nav-item
+          class="ml-auto"
+          href="#"
+          @click.prevent="$emit('logout')"
+          v-else
+        >Logout</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -37,19 +42,26 @@ export default {
       localStorage.activeUser = null;
     },
     updateActiveUser(current) {
-      const needToSetUser = this.activeUser === null
-      || (
-        current.params
-        && current.params.activeUser
-        && this.activeUser.id !== current.params.activeUser.id);
+      const needToSetUser = this.activeUser === null;
 
-      if (needToSetUser) {
+      if (needToSetUser && current.params && current.params.activeUser) {
         this.activeUser = current.params.activeUser;
+      } else if (needToSetUser) {
+        this.activeUser = JSON.parse(localStorage.activeUser);
       }
     },
+  },
+  mounted() {
+    this.updateActiveUser(this.$route);
   },
   watch: {
     $route: 'updateActiveUser',
   },
 };
 </script>
+
+<style scoped>
+.navbar-nav {
+  width: 100%;
+}
+</style>

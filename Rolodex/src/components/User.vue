@@ -2,9 +2,9 @@
   <tr v-if="editing === false">
     <td>{{user.name}}</td>
     <td>
-      <router-link
+      <b-button
         :to="{ name: 'contact-list', params: { activeUser: user }, }"
-      >View User</router-link>
+      >View User</b-button>
     </td>
     <td><b-button @click="$emit('removeUser', index)">Delete</b-button></td>
   </tr>
@@ -34,9 +34,6 @@ export default {
     };
   },
   props: ['user', 'editing', 'index', 'loading'],
-  methods: {
-
-  },
   computed: {
     name() {
       return this.user.name;

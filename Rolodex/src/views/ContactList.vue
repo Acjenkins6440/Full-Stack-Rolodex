@@ -75,8 +75,19 @@ export default {
     beginContactEdit(index) {
       this.editingIndex = index;
     },
-    saveAllChanges() {
-
+    addContact() {
+      const newEmptyContact = { ...this.emptyContact, userId: this.activeUser.id };
+      this.contacts.push(newEmptyContact);
+      this.editingIndex = this.contacts.length - 1;
+      if (this.editingIndex > 9) {
+        this.currentPage = Math.ceil(this.contacts.length / 10);
+        this.editingIndex = this.contactPage.length - 1;
+      }
+    },
+    initUserStorage() {
+      if (!localStorage.activeUser || localStorage.activeUser !== this.$route.params.activeUser) {
+        localStorage.setItem('activeUser', JSON.stringify(this.$route.params.activeUser));
+      }
     },
     async removeContact(index) {
       const contact = this.contacts[index];
@@ -87,15 +98,6 @@ export default {
           ...this.contacts.slice(0, index),
           ...this.contacts.slice(index + 1, this.contacts.length),
         ];
-      }
-    },
-    addContact() {
-      const newEmptyContact = { ...this.emptyContact, userId: this.activeUser.id };
-      this.contacts.push(newEmptyContact);
-      this.editingIndex = this.contacts.length - 1;
-      if (this.editingIndex > 9) {
-        this.currentPage = Math.ceil(this.contacts.length / 10);
-        this.editingIndex = this.contactPage.length - 1;
       }
     },
     async updateContact(index) {
@@ -118,12 +120,8 @@ export default {
       try {
         this.contacts = await api.getContacts(this.activeUser.id);
       } finally {
+        this.contacts.sort((a, b) => ((a.name > b.name) ? 1 : -1));
         this.loading = false;
-      }
-    },
-    initUserStorage() {
-      if (!localStorage.activeUser || localStorage.activeUser !== this.$route.params.activeUser) {
-        localStorage.setItem('activeUser', JSON.stringify(this.$route.params.activeUser));
       }
     },
   },

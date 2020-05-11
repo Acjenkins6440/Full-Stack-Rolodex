@@ -63,4 +63,7 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+.btn, button {
+  background-color: #557A95 !important;
+}
 </style>

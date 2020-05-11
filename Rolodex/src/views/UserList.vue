@@ -94,7 +94,6 @@ export default {
       }
     },
     async updateUser(index) {
-      debugger;
       const user = this.users[index];
       this.loadingIndex = index;
       try {

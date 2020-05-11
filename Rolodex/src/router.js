@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Auth from '@okta/okta-vue';
 import Home from './views/Home.vue';
+import ContactList from './views/ContactList.vue';
 
 Vue.use(Router);
 Vue.use(Auth, {
@@ -20,16 +21,13 @@ const router = new Router({
       component: Home,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      path: '/contact-list',
+      name: 'contact-list',
+      component: ContactList,
     },
     {
       path: '/implicit/callback',
-      component: Auth.handleCallback(),
+      component: Auth.handleCallback('/'),
     },
   ],
 });

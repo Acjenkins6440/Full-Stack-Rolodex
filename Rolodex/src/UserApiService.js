@@ -2,7 +2,7 @@ import Vue from 'vue';
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: 'http://localhost:5000/api/ContactRecords/',
+  baseURL: 'http://localhost:5000/api/Users',
   json: true,
 });
 
@@ -22,17 +22,17 @@ export default {
         console.log(err);
       });
   },
-  getContacts(data) {
-    const contacts = this.makeRequest('GET', `/?userId=${data}`);
-    return contacts;
+  getUsers() {
+    const users = this.makeRequest('GET', '/');
+    return users;
   },
-  createNewContact(data) {
-    return this.makeRequest('POST', '/', data);
-  },
-  updateContact(id, data) {
+  updateUser(id, data) {
     return this.makeRequest('PUT', `/${id}`, data);
   },
-  deleteContact(id) {
+  createNewUser(data) {
+    return this.makeRequest('POST', '/', data);
+  },
+  deleteUser(id) {
     return this.makeRequest('DELETE', `/${id}`);
   },
 };

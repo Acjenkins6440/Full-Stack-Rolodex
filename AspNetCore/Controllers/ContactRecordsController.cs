@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,9 +20,9 @@ namespace AspNetCore.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<ContactRecord>>> Get()
+        public async Task<ActionResult<List<ContactRecord>>> Get(string userId)
         {
-            return await _dbContext.ContactRecords.ToListAsync();
+            return await _dbContext.ContactRecords.Where(contact => contact.UserId == userId).ToListAsync();
         }
 
         [HttpPost]

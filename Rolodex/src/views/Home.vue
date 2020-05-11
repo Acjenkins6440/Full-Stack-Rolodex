@@ -4,17 +4,18 @@
       <h1>Welcome to the Rolodex!</h1>
       <h3>Please use the "Login" button to get started</h3>
     </div>
-    <ContactList v-else />
+    <UserList v-else />
   </div>
 </template>
 
 <script>
-import ContactList from './ContactList.vue';
+// import ContactList from './ContactList.vue';
+import UserList from './UserList.vue';
 
 export default {
   name: 'Home',
   components: {
-    ContactList,
+    UserList,
   },
   methods: {
     login() {

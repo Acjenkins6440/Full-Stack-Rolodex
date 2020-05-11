@@ -11,7 +11,8 @@ namespace AspNetCore
         public string PhoneNumber { get; set; }
         public DateTime FirstEntered { get; set; }
         public DateTime LastEdited { get; set; }
-
+        public string UserId { get; set; }
+        public User User { get; set; }
         
     }
 }

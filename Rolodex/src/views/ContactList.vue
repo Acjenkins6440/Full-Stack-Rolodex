@@ -22,15 +22,15 @@
           </thead>
           <tbody>
             <Contact
-            v-for="(contact, index) in contactPage"
-            @editContact="beginContactEdit"
-            @saveContact="updateContact"
-            @removeContact="removeContact"
-            :loading="index === loadingIndex"
-            :key="index"
-            :index="index"
-            :contact="contact"
-            :editing="index === editingIndex"/>
+              v-for="(contact, index) in contactPage"
+              @editContact="beginContactEdit"
+              @saveContact="updateContact"
+              @removeContact="removeContact"
+              :loading="index === loadingIndex"
+              :key="index"
+              :index="index"
+              :contact="contact"
+              :editing="index === editingIndex"/>
           </tbody>
         </table>
       </b-row>
@@ -64,6 +64,7 @@ export default {
         email: '',
         address: '',
         notes: '',
+        userId: '',
       },
       editingIndex: null,
       loadingIndex: null,
@@ -89,7 +90,7 @@ export default {
       }
     },
     addContact() {
-      const newEmptyContact = { ...this.emptyContact };
+      const newEmptyContact = { ...this.emptyContact, userId: this.activeUser.id };
       this.contacts.push(newEmptyContact);
       this.editingIndex = this.contacts.length - 1;
       if (this.editingIndex > 9) {
@@ -114,22 +115,32 @@ export default {
     },
     async loadContacts() {
       this.loading = true;
-
       try {
-        this.contacts = await api.getContacts();
+        this.contacts = await api.getContacts(this.activeUser.id);
       } finally {
         this.loading = false;
       }
     },
+    initUserStorage() {
+      if (!localStorage.activeUser || localStorage.activeUser !== this.$route.params.activeUser) {
+        localStorage.setItem('activeUser', JSON.stringify(this.$route.params.activeUser));
+      }
+    },
   },
   async mounted() {
+    if (this.$route.params && this.$route.params.activeUser) {
+      this.initUserStorage();
+    }
     if (!this.contactsLoaded) {
-      this.loadContacts();
+      this.loadContacts(this.activeUser);
     }
   },
   computed: {
     contactsLoaded() {
       return this.contacts !== null;
+    },
+    activeUser() {
+      return JSON.parse(localStorage.activeUser);
     },
     contactPage() {
       return (this.contacts)

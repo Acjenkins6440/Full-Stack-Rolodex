@@ -2,7 +2,7 @@
   <b-navbar toggleable="md" type="dark" variant="dark">
     <b-navbar-toggle target="top-nav"></b-navbar-toggle>
     <b-navbar-brand>
-      Rolodex
+      <span v-if="user && user.name">{{user.name}}'s </span>Rolodex
     </b-navbar-brand>
     <b-collapse is-nav id="top-nav">
       <b-navbar-nav>
@@ -20,6 +20,6 @@
 <script>
 export default {
   name: 'Navbar',
-  props: ['authenticated'],
+  props: ['authenticated', 'user'],
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <Navbar @login="login" @logout="logout" :authenticated="authenticated"/>
+      <Navbar @login="login" @logout="logout" :user="user" :authenticated="authenticated"/>
     </header>
     <router-view/>
   </div>
@@ -15,6 +15,8 @@ export default {
   data() {
     return {
       authenticated: false,
+      // ideally the user will be taken from the login response, but I ran out of time
+      user: { name: 'Major Tom' },
     };
   },
   components: {

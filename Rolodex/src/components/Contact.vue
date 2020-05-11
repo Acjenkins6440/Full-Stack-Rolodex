@@ -1,7 +1,7 @@
 <template>
   <tr v-if="editing === false">
     <td>{{contact.name}}</td>
-    <td>{{contact.phone}}</td>
+    <td>{{contact.phoneNumber}}</td>
     <td>{{contact.email}}</td>
     <td>{{contact.address}}</td>
     <td>{{contact.notes}}</td>
@@ -22,7 +22,7 @@
         :disabled="loading"
         type="tel"
         class="form-control"
-        v-model="contact.phone"
+        v-model="contact.phoneNumber"
         :id="'phoneInput' + index"></b-form-input>
     </td>
     <td>
@@ -73,21 +73,6 @@ export default {
 
   },
   computed: {
-    email() {
-      return this.contact.email;
-    },
-    name() {
-      return this.contact.name;
-    },
-    phone() {
-      return this.contact.phone;
-    },
-    address() {
-      return this.contact.address;
-    },
-    notes() {
-      return this.contact.notes;
-    },
   },
 };
 </script>

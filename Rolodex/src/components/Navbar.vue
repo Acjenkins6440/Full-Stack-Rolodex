@@ -12,6 +12,7 @@
           @click="clearActiveUser"
           >Return to User List</b-nav-item>
         <b-nav-item
+          right="true"
           href="#"
           @click.prevent="$emit('login')"
           v-if="!authenticated"

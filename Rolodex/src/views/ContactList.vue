@@ -60,7 +60,7 @@ export default {
       contacts: null,
       emptyContact: {
         name: '',
-        phone: '',
+        phoneNumber: '',
         email: '',
         address: '',
         notes: '',

@@ -3,6 +3,7 @@ Simple Rolodex app built in a few hours with .Net back end and Vue.js front end
 
 ## Setting up the backend
 1) From the root directory, navigate to AspNetCore `cd AspNetCore` 
+2) Run migrations `dotnet ef database update`
 2) Start the dotnet server `dotnet run`
 
 ## Setting up the frontend

@@ -7,7 +7,7 @@ Simple Rolodex app built in a few hours with .Net back end and Vue.js front end
 2) Start the dotnet server `dotnet run`
 
 ## Setting up the frontend
-1) From the root directory, navigate to Rolodex `cd front/Rolodex`
+1) From the root directory, navigate to Rolodex `cd Rolodex`
 2) Install node packages `npm install`
 3) Once everything is installed, start the local server `npm run serve`
 
